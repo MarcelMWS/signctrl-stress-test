@@ -7,7 +7,7 @@
 ## Preparation
 
 **Target:**
-Want to test different consensus heigth's as happend during last double signing (catching_up: false; different consensus height's)
+Test different consensus heigth's as happend during last double signing (catching_up: false; different consensus height's)
 
 ![pic](SignCTRL-Stress-test.svg)
 
