@@ -1,7 +1,7 @@
 # Preparation
 
 **Target:**
-Want to test last state with different consensus heigth as happend during last double signing
+Want to test different consensus heigth's as happend during last double signing (catching_up: false; different consensus height's)
 
 ![pic](SignCTRL-Stress-test.svg)
 
@@ -11,7 +11,19 @@ Want to test last state with different consensus heigth as happend during last d
 
 `signctrl version: 71982ac0d618eafec0652474f3298cb9fd5f8ee8`
 
-`two Aws t3a.medium with 100G gp2 ssd storage (default iops)`
+`two aws t3a.medium with 100G gp2 ssd storage (default iops): signctrl-val-1, signctrl-val-2`
+
+`t3.small with 100G gp2 ssd storage (default iops): signctrl-master`
+
+Local Network with tree nodes:
+
+SignCtrl Master:
+
+signctrl-master: `999999stake` voting power
+
+signctrl-val-1: `494999stake` voting power
+
+signctrl-val-2: `494999stake` voting power (same priv_validator_key.json as signctrl-val-1)
 
 ## First Test
 
