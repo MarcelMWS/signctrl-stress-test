@@ -1,6 +1,7 @@
 # Preparation
 
-Want to test last state with different consensus heigth as happen during last double signing
+**Target:**
+Want to test last state with different consensus heigth as happend during last double signing
 
 ![pic](SignCTRL-Stress-test.svg)
 
