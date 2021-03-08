@@ -1,20 +1,32 @@
+# Preparation 
+
+Want to test last state with different consensus heigth as happen during last double signing
+
+![pic](SignCTRL-Stress-test.svg)
+
+## Environment
+
+`gaiad version: HEAD-042b7ef3bf07c4dc3d57eb733cd905b5bac22706 (v4.0.5)`
+
+`signctrl version: 71982ac0d618eafec0652474f3298cb9fd5f8ee8`
+
+`two Aws t3a.medium with 100G gp2 ssd storage (default iops)`
+
 ## First Test
 
 ### Important test cmd's
 
-###sign ctrl stress test t3a.medium test gaiad v4.0.5 signctrl 71982ac0d618eafec0652474f3298cb9fd5f8ee8
-
 cd ./build
 
-###clean
+### clean keys
 
 rm -rf keyring-test
 
-###list
+### list accounts
 
 gaiad keys list --keyring-backend test --keyring-dir .
 
-###run 
+### run msg send
 
 gaiad keys add main --recover --keyring-backend test --keyring-dir .
  
@@ -24,18 +36,18 @@ gaiad tx sign unsigned.json --chain-id sc --keyring-backend test --from main --n
  
 gaiad tx broadcast signed.json --node tcp://52.59.242.1:26657
 
-###view 
+### view balances
 
 
 gaiad q bank balances cosmos1h4u0nh2h7z4lj0v9ekge42wfpaug8dvksznrz4 --node tcp://52.59.242.1:26657
 
 gaiad q bank balances cosmos10pt62z2vqzes58jkct32pvslr377wn86tz75c4 --node tcp://52.59.242.1:26657
 
-### unjail
+### unjail validator
 
 gaiad tx slashing unjail --from validator --chain-id sc --home /data --memo "THIS IS THE MEMO" --keyring-backend test
 
-### show validator
+### show validator address (cosmosvalconspub1)
 
 gaiad tendermint show-validator --home /data
 
@@ -43,7 +55,9 @@ gaiad tendermint show-validator --home /data
 
 gaiad q slashing signing-info cosmosvalconspub1zcjduepq5ql8rzrle438f400ujelrxyu4jj82yuggwqnm3acxkaretpc82lsvn8w3g
 
-## testing
+# Results
+
+## 1. testing
 
 with 13000 tx msgs and config toml as configured in this commit
 
