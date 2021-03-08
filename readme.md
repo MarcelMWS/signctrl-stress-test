@@ -27,8 +27,6 @@ signctrl-val-1: `494999stake` voting power
 
 signctrl-val-2: `494999stake` voting power (same priv_validator_key.json as signctrl-val-1)
 
-## First Test
-
 ### Important test cmd's
 
 `cd ./build`
