@@ -71,6 +71,18 @@ signctrl-val-2: `494999stake` voting power (same priv_validator_key.json as sign
 
 `gaiad q slashing signing-info cosmosvalconspub1zcjduepq5ql8rzrle438f400ujelrxyu4jj82yuggwqnm3acxkaretpc82lsvn8w3g`
 
+### stop signctrl and gaia
+
+`sudo systemctl stop gaiad; sleep 0.5s; sudo systemctl stop signctrl`
+
+### restart signctrl and gaia
+
+`sudo systemctl stop gaiad; sleep 0.5s; sudo systemctl stop signctrl; sleep 1s; sudo systemctl start signctrl; sleep 0.5s; sudo systemctl start gaiad`
+
+### start signctrl and gaia
+
+`sudo systemctl start signctrl; sleep 0.5s; sudo systemctl start gaiad; sleep 0.5s; sudo journalctl -feu signctrl`
+
 ## Results
 
 ## 1. testing
