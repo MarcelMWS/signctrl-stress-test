@@ -1,4 +1,49 @@
-### First Test
+## First Test
+
+### Important test cmd's
+
+###sign ctrl stress test t3a.medium test gaiad v4.0.5 signctrl 71982ac0d618eafec0652474f3298cb9fd5f8ee8
+
+cd ./build
+
+###clean
+
+rm -rf keyring-test
+
+###list
+
+gaiad keys list --keyring-backend test --keyring-dir .
+
+###run 
+
+gaiad keys add main --recover --keyring-backend test --keyring-dir .
+ 
+./gaiad tx bank send cosmos1h4u0nh2h7z4lj0v9ekge42wfpaug8dvksznrz4 cosmos10pt62z2vqzes58jkct32pvslr377wn86tz75c4 1stake --keyring-backend test --chain-id sc --generate-only --gas 198310000 --memo blockscape > unsigned.json
+ 
+gaiad tx sign unsigned.json --chain-id sc --keyring-backend test --from main --node tcp://52.59.242.1:26657 > signed.json
+ 
+gaiad tx broadcast signed.json --node tcp://52.59.242.1:26657
+
+###view 
+
+
+gaiad q bank balances cosmos1h4u0nh2h7z4lj0v9ekge42wfpaug8dvksznrz4 --node tcp://52.59.242.1:26657
+
+gaiad q bank balances cosmos10pt62z2vqzes58jkct32pvslr377wn86tz75c4 --node tcp://52.59.242.1:26657
+
+### unjail
+
+gaiad tx slashing unjail --from validator --chain-id sc --home /data --memo "THIS IS THE MEMO" --keyring-backend test
+
+### show validator
+
+gaiad tendermint show-validator --home /data
+
+### show signing infos
+
+gaiad q slashing signing-info cosmosvalconspub1zcjduepq5ql8rzrle438f400ujelrxyu4jj82yuggwqnm3acxkaretpc82lsvn8w3g
+
+## testing
 
 with 13000 tx msgs and config toml as configured in this commit
 
