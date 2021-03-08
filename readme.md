@@ -1,4 +1,4 @@
-# Preparation 
+# Preparation
 
 Want to test last state with different consensus heigth as happen during last double signing
 
@@ -16,46 +16,45 @@ Want to test last state with different consensus heigth as happen during last do
 
 ### Important test cmd's
 
-cd ./build
+`cd ./build`
 
 ### clean keys
 
-rm -rf keyring-test
+`rm -rf keyring-tes`
 
 ### list accounts
 
-gaiad keys list --keyring-backend test --keyring-dir .
+`gaiad keys list --keyring-backend test --keyring-dir .`
 
 ### run msg send
 
-gaiad keys add main --recover --keyring-backend test --keyring-dir .
- 
-./gaiad tx bank send cosmos1h4u0nh2h7z4lj0v9ekge42wfpaug8dvksznrz4 cosmos10pt62z2vqzes58jkct32pvslr377wn86tz75c4 1stake --keyring-backend test --chain-id sc --generate-only --gas 198310000 --memo blockscape > unsigned.json
- 
-gaiad tx sign unsigned.json --chain-id sc --keyring-backend test --from main --node tcp://52.59.242.1:26657 > signed.json
- 
-gaiad tx broadcast signed.json --node tcp://52.59.242.1:26657
+`gaiad keys add main --recover --keyring-backend test --keyring-dir .`
+
+`./gaiad tx bank send cosmos1h4u0nh2h7z4lj0v9ekge42wfpaug8dvksznrz4 cosmos10pt62z2vqzes58jkct32pvslr377wn86tz75c4 1stake --keyring-backend test --chain-id sc --generate-only --gas 198310000 --memo blockscape > unsigned.json`
+
+`gaiad tx sign unsigned.json --chain-id sc --keyring-backend test --from main --node tcp://52.59.242.1:26657 > signed.json`
+
+`gaiad tx broadcast signed.json --node tcp://52.59.242.1:26657`
 
 ### view balances
 
+`gaiad q bank balances cosmos1h4u0nh2h7z4lj0v9ekge42wfpaug8dvksznrz4 --node tcp://52.59.242.1:26657`
 
-gaiad q bank balances cosmos1h4u0nh2h7z4lj0v9ekge42wfpaug8dvksznrz4 --node tcp://52.59.242.1:26657
-
-gaiad q bank balances cosmos10pt62z2vqzes58jkct32pvslr377wn86tz75c4 --node tcp://52.59.242.1:26657
+`gaiad q bank balances cosmos10pt62z2vqzes58jkct32pvslr377wn86tz75c4 --node tcp://52.59.242.1:26656`
 
 ### unjail validator
 
-gaiad tx slashing unjail --from validator --chain-id sc --home /data --memo "THIS IS THE MEMO" --keyring-backend test
+`gaiad tx slashing unjail --from validator --chain-id sc --home /data --memo "THIS IS THE MEMO" --keyring-backend test`
 
 ### show validator address (cosmosvalconspub1)
 
-gaiad tendermint show-validator --home /data
+`gaiad tendermint show-validator --home /data`
 
 ### show signing infos
 
-gaiad q slashing signing-info cosmosvalconspub1zcjduepq5ql8rzrle438f400ujelrxyu4jj82yuggwqnm3acxkaretpc82lsvn8w3g
+`gaiad q slashing signing-info cosmosvalconspub1zcjduepq5ql8rzrle438f400ujelrxyu4jj82yuggwqnm3acxkaretpc82lsvn8w3g`
 
-# Results
+## Results
 
 ## 1. testing
 
