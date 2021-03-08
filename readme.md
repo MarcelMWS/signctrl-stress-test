@@ -87,15 +87,36 @@ signctrl-val-2: `494999stake` voting power (same priv_validator_key.json as sign
 
 ## 1. testing
 
-with 13000 tx msgs and config toml as configured in this commit
+with 14000 tx msgs and config toml as configured in this commit
 
 sign ctrl swaps to second node:
 
 ```
-Mar 08 15:09:41 signctrl-val-1 signctrl[2811]: [INFO] signctrl: Signed SIGNED_MSG_TYPE_PRECOMMIT for block height 51049
-Mar 08 15:09:45 signctrl-val-1 signctrl[2811]: [INFO] signctrl: Missed too many blocks in a row (1/1)
-Mar 08 15:09:45 signctrl-val-1 signctrl[2811]: [ERR] signctrl: couldn't handle request: node cannot be promoted anymore, so it must be shut down
-Mar 08 15:09:45 signctrl-val-1 signctrl[2811]: [INFO] signctrl: Stopping SignCTRL on rank 1...
-Mar 08 15:09:45 signctrl-val-1 signctrl[2811]: [INFO] signctrl: Saving current rank 1 to last_rank.json...
-Mar 08 15:09:45 signctrl-val-1 signctrl[2811]: [INFO] signctrl: Shutting SignCTRL down... ⏻ (quit)
+Mar 08 16:27:42 signctrl-val-1 signctrl[3537]: [INFO] signctrl: Signed SIGNED_MSG_TYPE_PRECOMMIT for block height 51956
+Mar 08 16:27:46 signctrl-val-1 signctrl[3537]: [INFO] signctrl: Signed SIGNED_MSG_TYPE_PRECOMMIT for block height 51957
+Mar 08 16:27:50 signctrl-val-1 signctrl[3537]: [INFO] signctrl: Missed too many blocks in a row (1/1)
+Mar 08 16:27:50 signctrl-val-1 signctrl[3537]: [ERR] signctrl: couldn't handle request: node cannot be promoted anymore, so it must be shut down
+Mar 08 16:27:50 signctrl-val-1 signctrl[3537]: [INFO] signctrl: Stopping SignCTRL on rank 1...
+Mar 08 16:27:50 signctrl-val-1 signctrl[3537]: [INFO] signctrl: Saving current rank 1 to last_rank.json...
+Mar 08 16:27:50 signctrl-val-1 signctrl[3537]: [INFO] signctrl: Shutting SignCTRL down... ⏻ (quit)
+```
+
+second node takes over as signer
+
+```
+Mar 08 16:27:42 signctrl-val-2 signctrl[3285]: [ERR] signctrl: couldn't handle request: no signing permission for SIGNED_MSG_TYPE_PRECOMMIT on block height 51956 (rank: 2)
+Mar 08 16:27:46 signctrl-val-2 signctrl[3285]: [ERR] signctrl: couldn't handle request: no signing permission for SIGNED_MSG_TYPE_PRECOMMIT on block height 51957 (rank: 2)
+Mar 08 16:27:50 signctrl-val-2 signctrl[3285]: [INFO] signctrl: Missed too many blocks in a row (1/1)
+Mar 08 16:27:50 signctrl-val-2 signctrl[3285]: [INFO] signctrl: Promote validator (2 -> 1)
+Mar 08 16:27:50 signctrl-val-2 signctrl[3285]: [INFO] signctrl: Signed SIGNED_MSG_TYPE_PRECOMMIT for block height 51958
+Mar 08 16:27:55 signctrl-val-2 signctrl[3285]: [INFO] signctrl: Signed SIGNED_MSG_TYPE_PROPOSAL for block height 51959
+Mar 08 16:27:55 signctrl-val-2 signctrl[3285]: [INFO] signctrl: Signed SIGNED_MSG_TYPE_PREVOTE for block height 51959
+Mar 08 16:27:55 signctrl-val-2 signctrl[3285]: [INFO] signctrl: Signed SIGNED_MSG_TYPE_PRECOMMIT for block height 51959
+Mar 08 16:28:00 signctrl-val-2 signctrl[3285]: [INFO] signctrl: Signed SIGNED_MSG_TYPE_PRECOMMIT for block height 51960
+Mar 08 16:28:05 signctrl-val-2 signctrl[3285]: [INFO] signctrl: Signed SIGNED_MSG_TYPE_PRECOMMIT for block height 51961
+Mar 08 16:28:10 signctrl-val-2 signctrl[3285]: [INFO] signctrl: Signed SIGNED_MSG_TYPE_PROPOSAL for block height 51962
+Mar 08 16:28:10 signctrl-val-2 signctrl[3285]: [INFO] signctrl: Signed SIGNED_MSG_TYPE_PREVOTE for block height 51962
+Mar 08 16:28:11 signctrl-val-2 signctrl[3285]: [INFO] signctrl: Signed SIGNED_MSG_TYPE_PRECOMMIT for block height 51962
+Mar 08 16:28:16 signctrl-val-2 signctrl[3285]: [INFO] signctrl: Signed SIGNED_MSG_TYPE_PRECOMMIT for block height 51963
+Mar 08 16:28:21 signctrl-val-2 signctrl[3285]: [INFO] signctrl: Signed SIGNED_MSG_TYPE_PRECOMMIT for block height 51964
 ```
