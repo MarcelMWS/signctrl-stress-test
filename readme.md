@@ -37,7 +37,7 @@ signctrl-val-2: `494999stake` voting power (same priv_validator_key.json as sign
 
 ### clean keys
 
-`rm -rf keyring-tes`
+`rm -rf keyring-test`
 
 ### list accounts
 
