@@ -128,9 +128,8 @@ Mar 08 16:28:11 signctrl-val-2 signctrl[3285]: [INFO] signctrl: Signed SIGNED_MS
 Mar 08 16:28:16 signctrl-val-2 signctrl[3285]: [INFO] signctrl: Signed SIGNED_MSG_TYPE_PRECOMMIT for block height 51963
 Mar 08 16:28:21 signctrl-val-2 signctrl[3285]: [INFO] signctrl: Signed SIGNED_MSG_TYPE_PRECOMMIT for block height 51964
 ```
-<<<<<<< HEAD
 
-2. test (09.03.2021)
+## 2. test (09.03.2021)
 
 broadcast two 14000 tx msgs to both nodes. both vals breaks
 
@@ -155,5 +154,3 @@ Mar 09 10:16:25 signctrl-val-2 signctrl[8038]: [INFO] signctrl: Stopping SignCTR
 Mar 09 10:16:25 signctrl-val-2 signctrl[8038]: [INFO] signctrl: Saving current rank 1 to last_rank.json...
 Mar 09 10:16:25 signctrl-val-2 signctrl[8038]: [INFO] signctrl: Shutting SignCTRL down... ⏻ (quit)
 ```
-=======
->>>>>>> a90fb3c7f34073ab2d6c3f70238293994942856d
