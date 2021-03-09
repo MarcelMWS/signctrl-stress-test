@@ -163,7 +163,7 @@ Reference Repo: [https://github.com/MarcelMWS/spammer/tree/BLCS-387-signctrl-str
 
 ### clean workspace
 
-`rm -rf keyring-test/ fatTx.json addrs.json`
+`rm -rf keyring-test/ fatTx.json addrs.json signed.json`
 
 ### generate accounts
 
