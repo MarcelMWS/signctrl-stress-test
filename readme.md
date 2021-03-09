@@ -154,3 +154,33 @@ Mar 09 10:16:25 signctrl-val-2 signctrl[8038]: [INFO] signctrl: Stopping SignCTR
 Mar 09 10:16:25 signctrl-val-2 signctrl[8038]: [INFO] signctrl: Saving current rank 1 to last_rank.json...
 Mar 09 10:16:25 signctrl-val-2 signctrl[8038]: [INFO] signctrl: Shutting SignCTRL down... ⏻ (quit)
 ```
+
+## 3. test (09.03.2021) with spammer help
+
+Reference Repo: https://github.com/MarcelMWS/spammer/tree/BLCS-387-signctrl-stress-test
+
+## spammer script ins1 52.59.242.1 ins2 3.124.188.205
+
+### clean workspace
+
+`rm -rf keyring-test/ fatTx.json addrs.json`
+
+### generate accounts
+
+`spammer fatTx 4500`
+
+### sign
+
+`gaiad tx sign fatTx.json --chain-id sc --keyring-backend test --from main --node tcp://52.59.242.1:26657 > signed.json`
+
+### broadcast
+
+`gaiad tx broadcast signed.json --node tcp://52.59.242.1:26657`
+
+### get account addresses
+
+`gaiad keys list --keyring-backend test --keyring-dir . --output json > addrs.json`
+
+### transfer tx
+
+`spammer bulkTxs`
