@@ -128,3 +128,29 @@ Mar 08 16:28:11 signctrl-val-2 signctrl[3285]: [INFO] signctrl: Signed SIGNED_MS
 Mar 08 16:28:16 signctrl-val-2 signctrl[3285]: [INFO] signctrl: Signed SIGNED_MSG_TYPE_PRECOMMIT for block height 51963
 Mar 08 16:28:21 signctrl-val-2 signctrl[3285]: [INFO] signctrl: Signed SIGNED_MSG_TYPE_PRECOMMIT for block height 51964
 ```
+
+2. test (09.03.2021)
+
+broadcast two 14000 tx msgs to both nodes. both vals breaks
+
+
+```
+Mar 09 10:15:30 signctrl-val-1 signctrl[8125]: [INFO] signctrl: Signed SIGNED_MSG_TYPE_PRECOMMIT for block height 64520
+Mar 09 10:15:34 signctrl-val-1 signctrl[8125]: [INFO] signctrl: Signed SIGNED_MSG_TYPE_PRECOMMIT for block height 64521
+Mar 09 10:15:38 signctrl-val-1 signctrl[8125]: [INFO] signctrl: Missed too many blocks in a row (1/1)
+Mar 09 10:15:38 signctrl-val-1 signctrl[8125]: [ERR] signctrl: couldn't handle request: node cannot be promoted anymore, so it must be shut down
+Mar 09 10:15:38 signctrl-val-1 signctrl[8125]: [INFO] signctrl: Stopping SignCTRL on rank 1...
+Mar 09 10:15:38 signctrl-val-1 signctrl[8125]: [INFO] signctrl: Saving current rank 1 to last_rank.json...
+Mar 09 10:15:38 signctrl-val-1 signctrl[8125]: [INFO] signctrl: Shutting SignCTRL down... ⏻ (quit)
+```
+
+```
+Mar 09 10:16:14 signctrl-val-2 signctrl[8038]: [INFO] signctrl: Signed SIGNED_MSG_TYPE_PREVOTE for block height 64529
+Mar 09 10:16:17 signctrl-val-2 signctrl[8038]: [INFO] signctrl: Signed SIGNED_MSG_TYPE_PRECOMMIT for block height 64529
+Mar 09 10:16:21 signctrl-val-2 signctrl[8038]: [INFO] signctrl: Signed SIGNED_MSG_TYPE_PRECOMMIT for block height 64530
+Mar 09 10:16:25 signctrl-val-2 signctrl[8038]: [INFO] signctrl: Missed too many blocks in a row (1/1)
+Mar 09 10:16:25 signctrl-val-2 signctrl[8038]: [ERR] signctrl: couldn't handle request: node cannot be promoted anymore, so it must be shut down
+Mar 09 10:16:25 signctrl-val-2 signctrl[8038]: [INFO] signctrl: Stopping SignCTRL on rank 1...
+Mar 09 10:16:25 signctrl-val-2 signctrl[8038]: [INFO] signctrl: Saving current rank 1 to last_rank.json...
+Mar 09 10:16:25 signctrl-val-2 signctrl[8038]: [INFO] signctrl: Shutting SignCTRL down... ⏻ (quit)
+```
