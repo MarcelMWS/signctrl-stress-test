@@ -53,6 +53,14 @@ signctrl-val-2: `494999stake` voting power (same priv_validator_key.json as sign
 
 `gaiad tx broadcast signed.json --node tcp://52.59.242.1:26657`
 
+### second node endpoint 
+
+`./gaiad tx bank send cosmos1h4u0nh2h7z4lj0v9ekge42wfpaug8dvksznrz4 cosmos10pt62z2vqzes58jkct32pvslr377wn86tz75c4 1stake --keyring-backend test --chain-id sc --generate-only --gas 198310000 --memo blockscape > unsigned.json`
+
+`gaiad tx sign unsigned.json --chain-id sc --keyring-backend test --from main --node tcp://3.124.188.205:26657 > signed.json`
+
+`gaiad tx broadcast signed.json --node tcp://3.124.188.205:26657`
+
 ### view balances
 
 `gaiad q bank balances cosmos1h4u0nh2h7z4lj0v9ekge42wfpaug8dvksznrz4 --node tcp://52.59.242.1:26657`
@@ -85,7 +93,7 @@ signctrl-val-2: `494999stake` voting power (same priv_validator_key.json as sign
 
 ## Results
 
-## 1. testing
+## 1. test (08.03.2021)
 
 with 14000 tx msgs and config toml as configured in this commit
 
